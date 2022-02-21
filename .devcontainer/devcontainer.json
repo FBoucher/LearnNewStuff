@@ -5,6 +5,6 @@
       "ms-dotnettools.blazorwasm-companion",
       "eamodio.gitlens"
   ],
-  "postCreateCommand": "npm install -g @azure/static-web-apps-cli && npm i -g azure-functions-core-tools@3 --unsafe-perm true"
+  "updateContentCommand": "npm install -g @azure/static-web-apps-cli && npm i -g azure-functions-core-tools@3 --unsafe-perm true"
 
 }
