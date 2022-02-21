@@ -2,7 +2,7 @@
   "extensions": [
       "ms-azuretools.vscode-azurefunctions",
       "ms-dotnettools.csharp",
-      "ms-dotnettools.blazorwasm-companion"
+      "ms-dotnettools.blazorwasm-companion",
       "eamodio.gitlens"
   ],
   "postCreateCommand": "npm install -g @azure/static-web-apps-cli && npm i -g azure-functions-core-tools@3 --unsafe-perm true"
