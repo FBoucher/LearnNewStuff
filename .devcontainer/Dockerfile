@@ -25,9 +25,10 @@ RUN bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${U
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g @azure/static-web-apps-cli && npm i -g azure-functions-core-tools@3 --unsafe-perm true" 2>&1
 
 # Install OhMyZSH
-#RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
-#    -t agnoster \
-#    -p git \
-#    -p dotnet \
-#
-#CMD ["zsh"]
+RUN su vscode sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
+   -t agnoster \
+   -p git \
+   -p dotnet
+
+# start zsh
+CMD [ "zsh" ]
