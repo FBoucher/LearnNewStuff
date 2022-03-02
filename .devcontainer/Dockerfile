@@ -6,7 +6,4 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p git \
     -p dotnet \
 
-COPY .profile /root/.profile
-COPY .zshrc /root/.zshrc
-
 CMD ["zsh"]
