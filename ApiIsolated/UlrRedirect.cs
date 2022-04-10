@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using BlazorApp.Shared;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -12,7 +13,7 @@ namespace ApiIsolated
     {
         private readonly ILogger _logger;
 
-        public HttpTrigger(ILoggerFactory loggerFactory)
+        public UrlRedirect(ILoggerFactory loggerFactory)
         {
             _logger = loggerFactory.CreateLogger<HttpTrigger>();
         }
