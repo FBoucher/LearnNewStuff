@@ -19,12 +19,12 @@ namespace ApiIsolated
         }
 
         [Function("UrlRedirect")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "UrlRedirect/{shortUrl}")] HttpRequestData req,
             string shortUrl, 
-            ExecutionContext context,
-            ILogger log)
+            ExecutionContext context)
         {
-            log.LogInformation($"HTTP trigger function processed for Url: {shortUrl}");
+            _logger.LogInformation($"-->> TRying to Url Redirect");
+            _logger.LogInformation($"HTTP trigger function processed for Url: {shortUrl}");
 
             string redirectUrl = "https://azure.com";
 
@@ -58,7 +58,7 @@ namespace ApiIsolated
             }
             else
             {
-                log.LogInformation("Bad Link, resorting to fallback.");
+                _logger.LogInformation("Bad Link, resorting to fallback.");
             }
 
             var res = req.CreateResponse(HttpStatusCode.Redirect);

@@ -1,12 +1,20 @@
 {
-    "navigationFallback": {
-        "rewrite": "/index.html"
-    },
     "routes": [
         {
+            "route": "/admin",
+            "redirect": "/index.html"
+        },
+        {
             "route": "/{shortUrl}",
-            "redirect": "/apiIsolated/UrlRedirect/{shortUrl}"
+            "rewrite": "/api/urlredirect/{shortUrl}"
+        },
+        {
+            "route": "/api/*",
+            "rewrite": "/api/urlredirect"
+        },
+        {
+            "route": "/api/{shortUrl}",
+            "rewrite": "/api/urlredirect/{shortUrl}"
         }
     ]
 }
-

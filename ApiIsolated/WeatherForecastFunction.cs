@@ -23,10 +23,13 @@ namespace ApiIsolated
             var randomNumber = new Random();
             var temp = 0;
 
+            _logger.LogInformation($"You asked for a weather forecast");
+
+
             var result = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
-                TemperatureC = temp = randomNumber.Next(-20, 55),
+                TemperatureC = temp = randomNumber.Next(-5, 10),
                 Summary = GetSummary(temp)
             }).ToArray();
 
@@ -40,15 +43,15 @@ namespace ApiIsolated
         {
             var summary = "Mild";
 
-            if (temp >= 32)
+            if (temp >= 20)
             {
                 summary = "Hot";
             }
-            else if (temp <= 16 && temp > 0)
+            else if (temp <= 0 && temp > 5)
             {
                 summary = "Cold";
             }
-            else if (temp <= 0)
+            else if (temp <= -15)
             {
                 summary = "Freezing";
             }
