@@ -13,8 +13,13 @@
             "rewrite": "/api/urlredirect"
         },
         {
-            "route": "/api/{shortUrl}",
-            "rewrite": "/api/urlredirect/{shortUrl}"
+            "route": "/bad",
+            "statusCode": 404
         }
-    ]
+    ],
+    "responseOverrides": {
+      "404": {
+        "rewrite": "/404.html"
+      }
+    }
 }
